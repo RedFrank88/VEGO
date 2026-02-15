@@ -1,0 +1,181 @@
+import { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from "react-native";
+import { useRouter } from "expo-router";
+import { signUp } from "../../services/auth";
+import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
+import { Ionicons } from "@expo/vector-icons";
+
+export default function RegisterScreen() {
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleRegister = async () => {
+    if (!name || !email || !password) {
+      Alert.alert("Error", "Completá todos los campos");
+      return;
+    }
+    if (password.length < 6) {
+      Alert.alert("Error", "La contraseña debe tener al menos 6 caracteres");
+      return;
+    }
+    setLoading(true);
+    try {
+      await signUp(email, password, name);
+    } catch (error: any) {
+      Alert.alert("Error", error.message || "No se pudo crear la cuenta");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+        <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
+          <Ionicons name="arrow-back" size={24} color={Colors.text} />
+        </TouchableOpacity>
+
+        <Text style={styles.title}>Crear Cuenta</Text>
+        <Text style={styles.subtitle}>Únete a la comunidad VEGO</Text>
+
+        <View style={styles.form}>
+          <View style={styles.inputContainer}>
+            <Ionicons name="person-outline" size={20} color={Colors.textSecondary} />
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre"
+              placeholderTextColor={Colors.textSecondary}
+              value={name}
+              onChangeText={setName}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Ionicons name="mail-outline" size={20} color={Colors.textSecondary} />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor={Colors.textSecondary}
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Ionicons name="lock-closed-outline" size={20} color={Colors.textSecondary} />
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña (mín. 6 caracteres)"
+              placeholderTextColor={Colors.textSecondary}
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+            />
+          </View>
+
+          <TouchableOpacity
+            style={[styles.button, loading && styles.buttonDisabled]}
+            onPress={handleRegister}
+            disabled={loading}
+          >
+            <Text style={styles.buttonText}>
+              {loading ? "Creando cuenta..." : "Registrarse"}
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => router.push("/(auth)/login")}>
+            <Text style={styles.linkText}>¿Ya tenés cuenta? Iniciá sesión</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+  scroll: {
+    flexGrow: 1,
+    padding: Spacing.xl,
+    paddingTop: 60,
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    marginBottom: Spacing.lg,
+  },
+  title: {
+    fontSize: FontSize.xxl,
+    fontWeight: "700",
+    color: Colors.text,
+  },
+  subtitle: {
+    fontSize: FontSize.md,
+    color: Colors.textSecondary,
+    marginTop: Spacing.xs,
+    marginBottom: Spacing.xl,
+  },
+  form: {
+    gap: Spacing.md,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: Colors.surface,
+    borderRadius: BorderRadius.lg,
+    paddingHorizontal: Spacing.md,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    height: 52,
+  },
+  input: {
+    flex: 1,
+    marginLeft: Spacing.sm,
+    fontSize: FontSize.md,
+    color: Colors.text,
+  },
+  button: {
+    backgroundColor: Colors.primary,
+    paddingVertical: Spacing.md,
+    borderRadius: BorderRadius.lg,
+    alignItems: "center",
+    marginTop: Spacing.sm,
+  },
+  buttonDisabled: {
+    opacity: 0.6,
+  },
+  buttonText: {
+    fontSize: FontSize.lg,
+    fontWeight: "700",
+    color: Colors.textLight,
+  },
+  linkText: {
+    textAlign: "center",
+    color: Colors.primary,
+    fontSize: FontSize.sm,
+    fontWeight: "600",
+    marginTop: Spacing.sm,
+  },
+});

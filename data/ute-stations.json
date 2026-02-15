@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ute-001",
+    "name": "UTE Cargador - Tres Cruces",
+    "address": "Bulevar Artigas 1825, Montevideo",
+    "latitude": -34.8836,
+    "longitude": -56.1619,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-002",
+    "name": "UTE Cargador - Punta Carretas Shopping",
+    "address": "José Ellauri 350, Montevideo",
+    "latitude": -34.9247,
+    "longitude": -56.1583,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-003",
+    "name": "UTE Cargador - Montevideo Shopping",
+    "address": "Av. Luis Alberto de Herrera 1290, Montevideo",
+    "latitude": -34.8933,
+    "longitude": -56.1342,
+    "status": "available",
+    "connectorType": "CCS",
+    "power": 50,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-004",
+    "name": "UTE Cargador - Ciudad Vieja",
+    "address": "Rambla 25 de Agosto, Montevideo",
+    "latitude": -34.9058,
+    "longitude": -56.2105,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-005",
+    "name": "UTE Cargador - Punta del Este",
+    "address": "Gorlero esq. Calle 28, Punta del Este",
+    "latitude": -34.9667,
+    "longitude": -54.9500,
+    "status": "available",
+    "connectorType": "CCS",
+    "power": 50,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-006",
+    "name": "UTE Cargador - Colonia del Sacramento",
+    "address": "Av. General Flores 480, Colonia",
+    "latitude": -34.4626,
+    "longitude": -57.8400,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-007",
+    "name": "UTE Cargador - Salto",
+    "address": "Av. Uruguay 1050, Salto",
+    "latitude": -31.3833,
+    "longitude": -57.9667,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-008",
+    "name": "UTE Cargador - Paysandú",
+    "address": "Av. España 1490, Paysandú",
+    "latitude": -32.3214,
+    "longitude": -58.0756,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-009",
+    "name": "UTE Cargador - Rivera",
+    "address": "Av. Sarandí 580, Rivera",
+    "latitude": -30.9053,
+    "longitude": -55.5508,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-010",
+    "name": "UTE Cargador - Maldonado",
+    "address": "Av. Roosevelt y Pedragosa Sierra, Maldonado",
+    "latitude": -34.9097,
+    "longitude": -54.9583,
+    "status": "available",
+    "connectorType": "CCS",
+    "power": 50,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-011",
+    "name": "UTE Cargador - Durazno",
+    "address": "Av. 33 Orientales 810, Durazno",
+    "latitude": -33.3794,
+    "longitude": -56.5222,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-012",
+    "name": "UTE Cargador - Minas",
+    "address": "Av. Varela 700, Minas",
+    "latitude": -34.3769,
+    "longitude": -55.2375,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-013",
+    "name": "UTE Cargador Rápido - Ruta 1 km 26",
+    "address": "Ruta 1 km 26, San José",
+    "latitude": -34.7500,
+    "longitude": -56.4167,
+    "status": "available",
+    "connectorType": "CCS",
+    "power": 60,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-014",
+    "name": "UTE Cargador - World Trade Center",
+    "address": "Av. Luis Alberto de Herrera 1248, Montevideo",
+    "latitude": -34.8917,
+    "longitude": -56.1308,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-015",
+    "name": "UTE Cargador - Atlántida",
+    "address": "Rambla de Atlántida, Canelones",
+    "latitude": -34.7667,
+    "longitude": -55.7583,
+    "status": "available",
+    "connectorType": "Type2",
+    "power": 22,
+    "operator": "UTE"
+  }
+]
