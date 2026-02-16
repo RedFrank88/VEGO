@@ -30,10 +30,11 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
   const [selectedDuration, setSelectedDuration] = useState<number>(30);
   const [selectedConnector, setSelectedConnector] = useState<string | null>(null);
 
-  const needsConnector = selectedStatus === "occupied" || selectedStatus === "broken";
-
   const selectableConnectors = useMemo(() => {
     if (!station.connectors) return [];
+    if (selectedStatus === "available") {
+      return station.connectors.filter((c) => c.status !== "available");
+    }
     if (selectedStatus === "occupied") {
       return station.connectors.filter((c) => c.status === "available");
     }
@@ -43,13 +44,15 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
     return [];
   }, [station.connectors, selectedStatus]);
 
+  const needsConnector = selectableConnectors.length > 0;
+
   const handleConfirm = () => {
     if (needsConnector && !selectedConnector) {
       return;
     }
     onCheckIn(
       selectedStatus,
-      needsConnector ? selectedConnector ?? undefined : undefined,
+      selectedConnector ?? undefined,
       selectedStatus === "occupied" ? selectedDuration : undefined
     );
     setSelectedConnector(null);
@@ -118,7 +121,9 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
             {needsConnector && (
               <>
                 <Text style={styles.sectionTitle}>
-                  {selectedStatus === "occupied"
+                  {selectedStatus === "available"
+                    ? "¿Qué conector volvió a funcionar?"
+                    : selectedStatus === "occupied"
                     ? "¿En qué conector estás cargando?"
                     : "¿Qué conector está averiado?"}
                 </Text>

@@ -68,9 +68,8 @@ export default function StationDetailScreen() {
     try {
       let updatedConnectors: typeof station.connectors | undefined;
       if (connectorId) {
-        const newStatus = status === "broken" ? "broken" : "occupied";
         updatedConnectors = station.connectors.map((c) =>
-          c.id === connectorId ? { ...c, status: newStatus as StationStatus } : c
+          c.id === connectorId ? { ...c, status } : c
         );
       }
 
