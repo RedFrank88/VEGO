@@ -16,7 +16,8 @@ import { useSettingsStore, DistanceUnit, Language } from "../stores/settingsStor
 import { useTranslation } from "../i18n";
 import { Colors, Spacing, FontSize, BorderRadius } from "../constants/theme";
 import { CAR_COLORS, ANIMAL_EMOJIS, DEFAULT_AVATAR_ID } from "../constants/avatars";
-import { deleteAccount } from "../services/auth";
+import { deleteAccount, resetPassword, getFirebaseAuthMessage } from "../services/auth";
+import { auth } from "../services/firebase";
 
 const LANGUAGES: { value: Language; label: string }[] = [
   { value: "es", label: "Español" },
@@ -32,6 +33,17 @@ export default function SettingsScreen() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [password, setPassword] = useState("");
   const [deleting, setDeleting] = useState(false);
+
+  const handleChangePassword = async () => {
+    const email = auth.currentUser?.email;
+    if (!email) return;
+    try {
+      await resetPassword(email);
+      Alert.alert(t.auth_change_password, t.auth_change_password_sent);
+    } catch (error: any) {
+      Alert.alert(t.error, getFirebaseAuthMessage(error));
+    }
+  };
 
   const handleDeleteAccount = () => {
     Alert.alert(t.settings_delete_confirm_title, t.settings_delete_confirm_message, [
@@ -181,6 +193,14 @@ export default function SettingsScreen() {
               <Text style={styles.infoValue}>1.0.0</Text>
             </View>
           </View>
+        </View>
+
+        {/* Change password */}
+        <View style={styles.section}>
+          <TouchableOpacity style={styles.changePasswordButton} onPress={handleChangePassword}>
+            <Ionicons name="key-outline" size={20} color={Colors.primary} />
+            <Text style={styles.changePasswordText}>{t.auth_change_password}</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Delete account */}
@@ -362,6 +382,23 @@ const styles = StyleSheet.create({
   },
   avatarEmoji: {
     fontSize: 22,
+  },
+  // Change password styles
+  changePasswordButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.surface,
+    padding: Spacing.md,
+    borderRadius: BorderRadius.lg,
+    gap: 8,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  changePasswordText: {
+    color: Colors.primary,
+    fontSize: FontSize.md,
+    fontWeight: "600",
   },
   // Delete account styles
   deleteButton: {

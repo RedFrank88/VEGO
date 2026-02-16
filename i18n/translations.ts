@@ -34,6 +34,8 @@ export const translations = {
     auth_reset_password_sent: "Te enviamos un email para restablecer tu contraseña",
     auth_reset_password_failed: "No se pudo enviar el email de recuperación",
     auth_user_not_found: "No existe una cuenta con este email",
+    auth_change_password: "Cambiar contraseña",
+    auth_change_password_sent: "Te enviamos un email para cambiar tu contraseña",
 
     // Common
     error: "Error",
@@ -202,6 +204,8 @@ export const translations = {
     auth_reset_password_sent: "We sent you an email to reset your password",
     auth_reset_password_failed: "Could not send recovery email",
     auth_user_not_found: "No account exists with this email",
+    auth_change_password: "Change password",
+    auth_change_password_sent: "We sent you an email to change your password",
 
     // Common
     error: "Error",
@@ -370,6 +374,8 @@ export const translations = {
     auth_reset_password_sent: "Enviamos um email para redefinir sua senha",
     auth_reset_password_failed: "Não foi possível enviar o email de recuperação",
     auth_user_not_found: "Não existe uma conta com este email",
+    auth_change_password: "Alterar senha",
+    auth_change_password_sent: "Enviamos um email para alterar sua senha",
 
     // Common
     error: "Erro",
