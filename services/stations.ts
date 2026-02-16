@@ -89,8 +89,11 @@ export async function seedStations() {
     }
   }
 
-  // Upsert all stations from local data (always sync coordinates/details)
+  // Only add stations that don't exist yet in Firestore
+  const existingIds = new Set(existing.docs.map((d) => d.id));
   for (const station of stations) {
-    await setDoc(doc(db, STATIONS_COL, station.id), station, { merge: true });
+    if (!existingIds.has(station.id)) {
+      await setDoc(doc(db, STATIONS_COL, station.id), station);
+    }
   }
 }

@@ -202,6 +202,17 @@ export default function StationDetailScreen() {
               label="Por"
               value={lastCheckin.userName}
             />
+            <DetailRow
+              icon="alert-circle-outline"
+              label="Estado"
+              value={
+                lastCheckin.status === "available"
+                  ? "Disponible"
+                  : lastCheckin.status === "occupied"
+                  ? "Ocupado"
+                  : "Fuera de servicio"
+              }
+            />
             {lastCheckin.connectorLabel && (
               <DetailRow
                 icon="flash-outline"
