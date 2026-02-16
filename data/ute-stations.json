@@ -2,11 +2,12 @@
   {
     "id": "ute-001",
     "name": "UTE Cargador - Tres Cruces",
-    "address": "Terminal Tres Cruces, Montevideo",
-    "latitude": -34.8938,
-    "longitude": -56.1666,
+    "address": "Bulevar Artigas 1825, Montevideo",
+    "latitude": -34.8943,
+    "longitude": -56.1653,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 4,
     "power": 22,
     "operator": "UTE"
   },
@@ -18,18 +19,20 @@
     "longitude": -56.1586,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
   {
     "id": "ute-003",
-    "name": "UTE Cargador - World Trade Center",
-    "address": "Av. Luis Alberto de Herrera 1248, Montevideo",
+    "name": "Montevideo Shopping",
+    "address": "Av. Luis A. de Herrera 1290, Montevideo",
     "latitude": -34.9048,
     "longitude": -56.1364,
     "status": "available",
     "connectorType": "CCS",
-    "power": 50,
+    "connectorCount": 2,
+    "power": 30,
     "operator": "UTE"
   },
   {
@@ -40,6 +43,7 @@
     "longitude": -56.1951,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -51,6 +55,7 @@
     "longitude": -56.2114,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -62,6 +67,7 @@
     "longitude": -56.1326,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 4,
     "power": 22,
     "operator": "UTE"
   },
@@ -73,6 +79,7 @@
     "longitude": -56.1923,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -84,6 +91,7 @@
     "longitude": -56.1408,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 150,
     "operator": "UTE"
   },
@@ -95,6 +103,7 @@
     "longitude": -54.9439,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 50,
     "operator": "UTE"
   },
@@ -106,17 +115,19 @@
     "longitude": -54.9375,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 50,
     "operator": "UTE"
   },
   {
     "id": "ute-011",
-    "name": "UTE Cargador - Colonia del Sacramento",
+    "name": "ANCAP Colonia del Sacramento",
     "address": "Av. Buenos Aires y 18 de Julio, Colonia",
     "latitude": -34.4699,
     "longitude": -57.8434,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -128,6 +139,7 @@
     "longitude": -57.9440,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -139,6 +151,7 @@
     "longitude": -58.0756,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -150,6 +163,7 @@
     "longitude": -56.7139,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 50,
     "operator": "UTE"
   },
@@ -161,6 +175,7 @@
     "longitude": -56.0122,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 50,
     "operator": "UTE"
   },
@@ -172,6 +187,7 @@
     "longitude": -55.4667,
     "status": "available",
     "connectorType": "CCS",
+    "connectorCount": 2,
     "power": 50,
     "operator": "UTE"
   },
@@ -183,6 +199,7 @@
     "longitude": -56.5222,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -194,6 +211,7 @@
     "longitude": -54.3333,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -205,6 +223,7 @@
     "longitude": -58.2972,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   },
@@ -216,6 +235,7 @@
     "longitude": -56.8833,
     "status": "available",
     "connectorType": "Type2",
+    "connectorCount": 2,
     "power": 22,
     "operator": "UTE"
   }

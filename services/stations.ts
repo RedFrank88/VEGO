@@ -1,6 +1,7 @@
 import {
   collection,
   doc,
+  deleteDoc,
   getDocs,
   onSnapshot,
   setDoc,
@@ -51,10 +52,18 @@ export async function updateStationStatus(
 
 export async function seedStations() {
   const existing = await getDocs(collection(db, STATIONS_COL));
-  if (!existing.empty) return; // Already seeded
-
   const stations = uteStations as Station[];
+
+  // Delete old stations that are no longer in the local data
+  const localIds = new Set(stations.map((s) => s.id));
+  for (const d of existing.docs) {
+    if (!localIds.has(d.id)) {
+      await deleteDoc(doc(db, STATIONS_COL, d.id));
+    }
+  }
+
+  // Upsert all stations from local data (always sync coordinates/details)
   for (const station of stations) {
-    await setDoc(doc(db, STATIONS_COL, station.id), station);
+    await setDoc(doc(db, STATIONS_COL, station.id), station, { merge: true });
   }
 }

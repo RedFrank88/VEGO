@@ -47,7 +47,7 @@ export function StationCard({ station, distance, onPress }: Props) {
           {distance !== undefined && (
             <Text style={styles.distance}>{formatDistance(distance)}</Text>
           )}
-          <Text style={styles.power}>{station.power} kW · {station.connectorType}</Text>
+          <Text style={styles.power}>{station.connectorCount}x {station.connectorType} · {station.power} kW</Text>
         </View>
       </View>
     </TouchableOpacity>

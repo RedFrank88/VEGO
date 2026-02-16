@@ -123,7 +123,7 @@ export default function StationDetailScreen() {
         <View style={styles.detailsCard}>
           <Text style={styles.sectionTitle}>Detalles</Text>
           <DetailRow icon="flash-outline" label="Potencia" value={`${station.power} kW`} />
-          <DetailRow icon="git-branch-outline" label="Conector" value={station.connectorType} />
+          <DetailRow icon="git-branch-outline" label="Conector" value={`${station.connectorCount}x ${station.connectorType}`} />
           <DetailRow icon="business-outline" label="Operador" value={station.operator} />
         </View>
 

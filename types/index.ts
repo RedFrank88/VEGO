@@ -19,6 +19,7 @@ export interface Station {
   longitude: number;
   status: StationStatus;
   connectorType: ConnectorType;
+  connectorCount: number;
   power: number; // kW
   operator: string;
   lastCheckin?: CheckIn;
