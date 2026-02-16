@@ -14,23 +14,25 @@ import { useRouter } from "expo-router";
 import { signIn } from "../../services/auth";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useTranslation } from "../../i18n";
 
 export default function LoginScreen() {
   const router = useRouter();
+  const t = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert("Error", "Completá todos los campos");
+      Alert.alert(t.error, t.auth_fill_all_fields);
       return;
     }
     setLoading(true);
     try {
       await signIn(email, password);
     } catch (error: any) {
-      Alert.alert("Error", error.message || "No se pudo iniciar sesión");
+      Alert.alert(t.error, error.message || t.auth_login_failed);
     } finally {
       setLoading(false);
     }
@@ -46,15 +48,15 @@ export default function LoginScreen() {
           <Ionicons name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
 
-        <Text style={styles.title}>Iniciar Sesión</Text>
-        <Text style={styles.subtitle}>Bienvenido de vuelta a VEGO</Text>
+        <Text style={styles.title}>{t.auth_login_title}</Text>
+        <Text style={styles.subtitle}>{t.auth_login_subtitle}</Text>
 
         <View style={styles.form}>
           <View style={styles.inputContainer}>
             <Ionicons name="mail-outline" size={20} color={Colors.textSecondary} />
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder={t.auth_email}
               placeholderTextColor={Colors.textSecondary}
               value={email}
               onChangeText={setEmail}
@@ -67,7 +69,7 @@ export default function LoginScreen() {
             <Ionicons name="lock-closed-outline" size={20} color={Colors.textSecondary} />
             <TextInput
               style={styles.input}
-              placeholder="Contraseña"
+              placeholder={t.auth_password}
               placeholderTextColor={Colors.textSecondary}
               value={password}
               onChangeText={setPassword}
@@ -81,7 +83,7 @@ export default function LoginScreen() {
             disabled={loading}
           >
             <Text style={styles.buttonText}>
-              {loading ? "Ingresando..." : "Ingresar"}
+              {loading ? t.auth_logging_in : t.auth_login}
             </Text>
           </TouchableOpacity>
         </View>

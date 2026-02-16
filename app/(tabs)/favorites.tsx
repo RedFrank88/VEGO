@@ -6,12 +6,14 @@ import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { useLocation } from "../../hooks/useLocation";
 import { StationCard } from "../../components/Station/StationCard";
 import { Colors, Spacing, FontSize } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 export default function FavoritesScreen() {
   const router = useRouter();
   const location = useLocation();
   const { getFavoriteStations } = useStationStore();
 
+  const t = useTranslation();
   const favorites = getFavoriteStations();
 
   const favoritesWithDistance = useMemo(() => {
@@ -33,9 +35,9 @@ export default function FavoritesScreen() {
       <View style={styles.container}>
         <View style={styles.emptyState}>
           <Ionicons name="heart-outline" size={64} color={Colors.border} />
-          <Text style={styles.emptyTitle}>Sin favoritos</Text>
+          <Text style={styles.emptyTitle}>{t.favorites_empty_title}</Text>
           <Text style={styles.emptySubtitle}>
-            Guardá tus cargadores favoritos para acceder rápidamente
+            {t.favorites_empty_subtitle}
           </Text>
         </View>
       </View>

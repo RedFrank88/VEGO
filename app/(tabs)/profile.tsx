@@ -1,19 +1,23 @@
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuthStore } from "../../stores/authStore";
 import { useStationStore } from "../../stores/stationStore";
 import { signOut } from "../../services/auth";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 export default function ProfileScreen() {
+  const router = useRouter();
   const { user } = useAuthStore();
   const { favoriteIds } = useStationStore();
+  const t = useTranslation();
 
   const handleLogout = () => {
-    Alert.alert("Cerrar Sesión", "¿Estás seguro?", [
-      { text: "Cancelar", style: "cancel" },
+    Alert.alert(t.profile_logout, t.profile_logout_confirm, [
+      { text: t.cancel, style: "cancel" },
       {
-        text: "Cerrar Sesión",
+        text: t.profile_logout,
         style: "destructive",
         onPress: () => signOut().catch(console.error),
       },
@@ -26,7 +30,7 @@ export default function ProfileScreen() {
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color={Colors.primary} />
         </View>
-        <Text style={styles.name}>{user?.displayName || "Usuario"}</Text>
+        <Text style={styles.name}>{user?.displayName || t.user_default}</Text>
         <Text style={styles.email}>{user?.email}</Text>
       </View>
 
@@ -34,43 +38,43 @@ export default function ProfileScreen() {
         <View style={styles.statItem}>
           <Ionicons name="heart" size={24} color={Colors.error} />
           <Text style={styles.statValue}>{favoriteIds.length}</Text>
-          <Text style={styles.statLabel}>Favoritos</Text>
+          <Text style={styles.statLabel}>{t.profile_favorites}</Text>
         </View>
         <View style={styles.divider} />
         <View style={styles.statItem}>
           <Ionicons name="leaf" size={24} color={Colors.primary} />
           <Text style={styles.statValue}>0</Text>
-          <Text style={styles.statLabel}>Eco-puntos</Text>
+          <Text style={styles.statLabel}>{t.profile_eco_points}</Text>
         </View>
         <View style={styles.divider} />
         <View style={styles.statItem}>
           <Ionicons name="location" size={24} color={Colors.primary} />
           <Text style={styles.statValue}>0</Text>
-          <Text style={styles.statLabel}>Check-ins</Text>
+          <Text style={styles.statLabel}>{t.profile_checkins}</Text>
         </View>
       </View>
 
       <View style={styles.menu}>
         <MenuItem
           icon="notifications-outline"
-          label="Notificaciones"
-          onPress={() => Alert.alert("Próximamente", "Esta función estará disponible pronto")}
+          label={t.profile_notifications}
+          onPress={() => Alert.alert(t.coming_soon, t.coming_soon_message)}
         />
         <MenuItem
           icon="settings-outline"
-          label="Configuración"
-          onPress={() => Alert.alert("Próximamente", "Esta función estará disponible pronto")}
+          label={t.profile_settings}
+          onPress={() => router.push("/settings")}
         />
         <MenuItem
           icon="help-circle-outline"
-          label="Ayuda"
-          onPress={() => Alert.alert("Próximamente", "Esta función estará disponible pronto")}
+          label={t.profile_help}
+          onPress={() => Alert.alert(t.coming_soon, t.coming_soon_message)}
         />
       </View>
 
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Ionicons name="log-out-outline" size={20} color={Colors.error} />
-        <Text style={styles.logoutText}>Cerrar Sesión</Text>
+        <Text style={styles.logoutText}>{t.profile_logout}</Text>
       </TouchableOpacity>
     </View>
   );

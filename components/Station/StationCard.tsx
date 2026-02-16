@@ -4,11 +4,8 @@ import { Station } from "../../types";
 import { StatusBadge } from "./StatusBadge";
 import { useStationStore } from "../../stores/stationStore";
 import { Colors, FontSize, Spacing, BorderRadius } from "../../constants/theme";
-
-function formatDistance(km: number): string {
-  if (km < 1) return `${Math.round(km * 1000)} m`;
-  return `${km.toFixed(1)} km`;
-}
+import { formatDistance } from "../../utils/formatDistance";
+import { useTranslation } from "../../i18n";
 
 interface Props {
   station: Station;
@@ -17,6 +14,7 @@ interface Props {
 }
 
 export function StationCard({ station, distance, onPress }: Props) {
+  const t = useTranslation();
   const { favoriteIds, toggleFavorite } = useStationStore();
   const isFavorite = favoriteIds.includes(station.id);
 
@@ -54,7 +52,7 @@ export function StationCard({ station, distance, onPress }: Props) {
             <Text style={styles.distance}>{formatDistance(distance)}</Text>
           )}
           <Text style={styles.power}>
-            {available}/{total} libres · {mainType} {mainPower} kW
+            {available}/{total} {t.station_free_connectors} · {mainType} {mainPower} kW
           </Text>
         </View>
       </View>

@@ -10,13 +10,9 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { StationStatus, Station, Connector } from "../../types";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 const DURATIONS = [15, 30, 60, 120];
-const STATUS_OPTIONS: { value: StationStatus; label: string; icon: string }[] = [
-  { value: "available", label: "Disponible", icon: "checkmark-circle" },
-  { value: "occupied", label: "Ocupado (estoy cargando)", icon: "time" },
-  { value: "broken", label: "Fuera de servicio", icon: "warning" },
-];
 
 interface Props {
   visible: boolean;
@@ -26,9 +22,16 @@ interface Props {
 }
 
 export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
+  const t = useTranslation();
   const [selectedStatus, setSelectedStatus] = useState<StationStatus>("available");
   const [selectedDuration, setSelectedDuration] = useState<number>(30);
   const [selectedConnector, setSelectedConnector] = useState<string | null>(null);
+
+  const STATUS_OPTIONS: { value: StationStatus; label: string; icon: string }[] = [
+    { value: "available", label: t.station_available, icon: "checkmark-circle" },
+    { value: "occupied", label: t.checkin_occupied_label, icon: "time" },
+    { value: "broken", label: t.station_broken, icon: "warning" },
+  ];
 
   const selectableConnectors = useMemo(() => {
     if (!station.connectors) return [];
@@ -76,7 +79,7 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
       <View style={styles.overlay}>
         <View style={styles.content}>
           <View style={styles.header}>
-            <Text style={styles.title}>Check-in</Text>
+            <Text style={styles.title}>{t.checkin_title}</Text>
             <TouchableOpacity onPress={handleClose}>
               <Ionicons name="close" size={24} color={Colors.textSecondary} />
             </TouchableOpacity>
@@ -85,7 +88,7 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
           <Text style={styles.stationName}>{station.name}</Text>
 
           <ScrollView style={styles.scrollArea} showsVerticalScrollIndicator={false}>
-            <Text style={styles.sectionTitle}>Estado del cargador</Text>
+            <Text style={styles.sectionTitle}>{t.checkin_charger_status}</Text>
             {STATUS_OPTIONS.map((option) => (
               <TouchableOpacity
                 key={option.value}
@@ -122,10 +125,10 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
               <>
                 <Text style={styles.sectionTitle}>
                   {selectedStatus === "available"
-                    ? "¿Qué conector volvió a funcionar?"
+                    ? t.checkin_connector_available
                     : selectedStatus === "occupied"
-                    ? "¿En qué conector estás cargando?"
-                    : "¿Qué conector está averiado?"}
+                    ? t.checkin_connector_occupied
+                    : t.checkin_connector_broken}
                 </Text>
                 {selectableConnectors.length > 0 ? (
                   selectableConnectors.map((connector) => (
@@ -172,13 +175,13 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
                   ))
                 ) : (
                   <Text style={styles.noConnectors}>
-                    No hay conectores disponibles en este momento
+                    {t.checkin_no_connectors}
                   </Text>
                 )}
 
                 {selectedStatus === "occupied" && (
                 <>
-                <Text style={styles.sectionTitle}>Tiempo estimado de carga</Text>
+                <Text style={styles.sectionTitle}>{t.checkin_estimated_time}</Text>
                 <View style={styles.durationsRow}>
                   {DURATIONS.map((d) => (
                     <TouchableOpacity
@@ -214,7 +217,7 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
             onPress={handleConfirm}
             disabled={needsConnector && !selectedConnector}
           >
-            <Text style={styles.confirmText}>Confirmar Check-in</Text>
+            <Text style={styles.confirmText}>{t.checkin_confirm}</Text>
           </TouchableOpacity>
         </View>
       </View>

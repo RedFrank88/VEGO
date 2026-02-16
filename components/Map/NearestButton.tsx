@@ -1,16 +1,18 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors, Spacing, BorderRadius, FontSize } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 interface Props {
   onPress: () => void;
 }
 
 export function NearestButton({ onPress }: Props) {
+  const t = useTranslation();
   return (
     <TouchableOpacity style={styles.fab} onPress={onPress} activeOpacity={0.8}>
       <Ionicons name="navigate" size={20} color={Colors.textLight} />
-      <Text style={styles.label}>Más cercano</Text>
+      <Text style={styles.label}>{t.map_nearest}</Text>
     </TouchableOpacity>
   );
 }

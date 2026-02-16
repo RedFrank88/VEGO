@@ -8,10 +8,11 @@ import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { StationMarker } from "../../components/Map/StationMarker";
 import { NearestButton } from "../../components/Map/NearestButton";
 import { MyLocationButton } from "../../components/Map/MyLocationButton";
-import { SearchBar } from "../../components/Map/SearchBar";
+import { NorthButton } from "../../components/Map/NorthButton";
 import { FilterChips } from "../../components/Map/FilterChips";
 import { StationListPanel } from "../../components/Map/StationListPanel";
 import { Station } from "../../types";
+import { t as getT } from "../../i18n";
 import uteStations from "../../data/ute-stations.json";
 
 const URUGUAY_REGION: Region = {
@@ -31,8 +32,6 @@ export default function MapScreen() {
     getNearestStation,
     filterStatus,
     setFilterStatus,
-    searchQuery,
-    setSearchQuery,
     setStations,
     getFilteredStations,
   } = useStationStore();
@@ -88,7 +87,7 @@ export default function MapScreen() {
   const handleNearestPress = useCallback(() => {
     const nearest = getNearestStation(location.latitude, location.longitude);
     if (!nearest) {
-      Alert.alert("Info", "No hay cargadores disponibles en este momento");
+      Alert.alert(getT().map_info, getT().map_no_chargers);
       return;
     }
     mapRef.current?.animateToRegion(
@@ -115,6 +114,10 @@ export default function MapScreen() {
     );
   }, [location.latitude, location.longitude]);
 
+  const handleNorthPress = useCallback(() => {
+    mapRef.current?.animateCamera({ heading: 0 }, { duration: 500 });
+  }, []);
+
   return (
     <View style={styles.container}>
       <MapView
@@ -135,10 +138,10 @@ export default function MapScreen() {
       </MapView>
 
       <View style={styles.overlay}>
-        <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
         <FilterChips activeFilter={filterStatus} onFilterChange={setFilterStatus} />
       </View>
 
+      <NorthButton onPress={handleNorthPress} />
       <MyLocationButton onPress={handleMyLocationPress} />
       <NearestButton onPress={handleNearestPress} />
       <StationListPanel

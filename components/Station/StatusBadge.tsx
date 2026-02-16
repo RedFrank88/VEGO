@@ -1,18 +1,21 @@
 import { View, Text, StyleSheet } from "react-native";
 import { StationStatus } from "../../types";
 import { Colors, FontSize, Spacing, BorderRadius } from "../../constants/theme";
-
-const config: Record<StationStatus, { label: string; color: string; bg: string }> = {
-  available: { label: "Disponible", color: Colors.statusAvailable, bg: "#E8F5E9" },
-  occupied: { label: "Ocupado", color: Colors.statusOccupied, bg: "#FFF3E0" },
-  broken: { label: "Fuera de servicio", color: Colors.statusBroken, bg: "#FFEBEE" },
-};
+import { useTranslation } from "../../i18n";
 
 interface Props {
   status: StationStatus;
 }
 
 export function StatusBadge({ status }: Props) {
+  const t = useTranslation();
+
+  const config: Record<StationStatus, { label: string; color: string; bg: string }> = {
+    available: { label: t.station_available, color: Colors.statusAvailable, bg: "#E8F5E9" },
+    occupied: { label: t.station_occupied, color: Colors.statusOccupied, bg: "#FFF3E0" },
+    broken: { label: t.station_broken, color: Colors.statusBroken, bg: "#FFEBEE" },
+  };
+
   const cfg = config[status] ?? config.available;
   const { label, color, bg } = cfg;
   return (

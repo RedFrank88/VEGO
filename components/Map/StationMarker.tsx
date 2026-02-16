@@ -3,17 +3,12 @@ import { View, Text, StyleSheet } from "react-native";
 import { Station } from "../../types";
 import { Colors, FontSize, Spacing, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useTranslation } from "../../i18n";
 
 const statusColors: Record<string, string> = {
   available: Colors.statusAvailable,
   occupied: Colors.statusOccupied,
   broken: Colors.statusBroken,
-};
-
-const statusLabels: Record<string, string> = {
-  available: "Disponible",
-  occupied: "Ocupado",
-  broken: "Fuera de servicio",
 };
 
 interface Props {
@@ -22,7 +17,14 @@ interface Props {
 }
 
 export function StationMarker({ station, onPress }: Props) {
+  const t = useTranslation();
   const color = statusColors[station.status] || Colors.textSecondary;
+
+  const statusLabels: Record<string, string> = {
+    available: t.station_available,
+    occupied: t.station_occupied,
+    broken: t.station_broken,
+  };
 
   return (
     <Marker

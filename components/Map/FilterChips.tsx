@@ -1,12 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
-
-const FILTERS = [
-  { label: "Todos", value: null },
-  { label: "Disponible", value: "available" },
-  { label: "Ocupado", value: "occupied" },
-  { label: "Averiado", value: "broken" },
-] as const;
+import { useTranslation } from "../../i18n";
 
 interface Props {
   activeFilter: string | null;
@@ -14,6 +8,15 @@ interface Props {
 }
 
 export function FilterChips({ activeFilter, onFilterChange }: Props) {
+  const t = useTranslation();
+
+  const FILTERS = [
+    { label: t.map_filter_all, value: null },
+    { label: t.station_available, value: "available" },
+    { label: t.station_occupied, value: "occupied" },
+    { label: t.station_broken_short, value: "broken" },
+  ] as const;
+
   return (
     <ScrollView
       horizontal

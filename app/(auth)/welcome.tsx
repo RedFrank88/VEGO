@@ -2,9 +2,11 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useTranslation } from "../../i18n";
 
 export default function WelcomeScreen() {
   const router = useRouter();
+  const t = useTranslation();
 
   return (
     <View style={styles.container}>
@@ -14,7 +16,7 @@ export default function WelcomeScreen() {
         </View>
         <Text style={styles.title}>VEGO</Text>
         <Text style={styles.subtitle}>
-          Encontrá cargadores para tu vehículo eléctrico en Uruguay
+          {t.auth_welcome_subtitle}
         </Text>
       </View>
 
@@ -23,14 +25,14 @@ export default function WelcomeScreen() {
           style={styles.primaryButton}
           onPress={() => router.push("/(auth)/register")}
         >
-          <Text style={styles.primaryButtonText}>Comenzar</Text>
+          <Text style={styles.primaryButtonText}>{t.auth_start}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.secondaryButton}
           onPress={() => router.push("/(auth)/login")}
         >
-          <Text style={styles.secondaryButtonText}>Ya tengo cuenta</Text>
+          <Text style={styles.secondaryButtonText}>{t.auth_have_account}</Text>
         </TouchableOpacity>
       </View>
     </View>

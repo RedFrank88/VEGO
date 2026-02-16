@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { Slot, useRouter, useSegments } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { View, ActivityIndicator, StyleSheet, Platform } from "react-native";
 import * as Notifications from "expo-notifications";
 import { useAuth } from "../hooks/useAuth";
 import { useCheckInExpiry } from "../hooks/useCheckInExpiry";
+import { useSettingsStore } from "../stores/settingsStore";
 import { Colors } from "../constants/theme";
 
 Notifications.setNotificationHandler({
@@ -31,6 +32,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     requestNotificationPermissions();
+    useSettingsStore.getState().loadSettings();
   }, []);
 
   useEffect(() => {
@@ -56,7 +58,18 @@ export default function RootLayout() {
 
   return (
     <>
-      <Slot />
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: Colors.primary },
+          headerTintColor: Colors.textLight,
+          headerTitleStyle: { fontWeight: "700" },
+        }}
+      >
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="station/[id]" options={{ title: "" }} />
+        <Stack.Screen name="settings" options={{ title: "" }} />
+      </Stack>
       <StatusBar style="dark" />
     </>
   );

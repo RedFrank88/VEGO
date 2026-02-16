@@ -14,9 +14,11 @@ import { useRouter } from "expo-router";
 import { signUp } from "../../services/auth";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useTranslation } from "../../i18n";
 
 export default function RegisterScreen() {
   const router = useRouter();
+  const t = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,18 +26,18 @@ export default function RegisterScreen() {
 
   const handleRegister = async () => {
     if (!name || !email || !password) {
-      Alert.alert("Error", "Completá todos los campos");
+      Alert.alert(t.error, t.auth_fill_all_fields);
       return;
     }
     if (password.length < 6) {
-      Alert.alert("Error", "La contraseña debe tener al menos 6 caracteres");
+      Alert.alert(t.error, t.auth_password_min);
       return;
     }
     setLoading(true);
     try {
       await signUp(email, password, name);
     } catch (error: any) {
-      Alert.alert("Error", error.message || "No se pudo crear la cuenta");
+      Alert.alert(t.error, error.message || t.auth_register_failed);
     } finally {
       setLoading(false);
     }
@@ -51,15 +53,15 @@ export default function RegisterScreen() {
           <Ionicons name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
 
-        <Text style={styles.title}>Crear Cuenta</Text>
-        <Text style={styles.subtitle}>Únete a la comunidad VEGO</Text>
+        <Text style={styles.title}>{t.auth_register_title}</Text>
+        <Text style={styles.subtitle}>{t.auth_register_subtitle}</Text>
 
         <View style={styles.form}>
           <View style={styles.inputContainer}>
             <Ionicons name="person-outline" size={20} color={Colors.textSecondary} />
             <TextInput
               style={styles.input}
-              placeholder="Nombre"
+              placeholder={t.auth_name}
               placeholderTextColor={Colors.textSecondary}
               value={name}
               onChangeText={setName}
@@ -70,7 +72,7 @@ export default function RegisterScreen() {
             <Ionicons name="mail-outline" size={20} color={Colors.textSecondary} />
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder={t.auth_email}
               placeholderTextColor={Colors.textSecondary}
               value={email}
               onChangeText={setEmail}
@@ -83,7 +85,7 @@ export default function RegisterScreen() {
             <Ionicons name="lock-closed-outline" size={20} color={Colors.textSecondary} />
             <TextInput
               style={styles.input}
-              placeholder="Contraseña (mín. 6 caracteres)"
+              placeholder={t.auth_password_hint}
               placeholderTextColor={Colors.textSecondary}
               value={password}
               onChangeText={setPassword}
@@ -97,12 +99,12 @@ export default function RegisterScreen() {
             disabled={loading}
           >
             <Text style={styles.buttonText}>
-              {loading ? "Creando cuenta..." : "Registrarse"}
+              {loading ? t.auth_registering : t.auth_register}
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => router.push("/(auth)/login")}>
-            <Text style={styles.linkText}>¿Ya tenés cuenta? Iniciá sesión</Text>
+            <Text style={styles.linkText}>{t.auth_has_account}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

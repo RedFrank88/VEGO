@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as Location from "expo-location";
+import { t } from "../i18n";
 
 interface LocationState {
   latitude: number;
@@ -27,7 +28,7 @@ export function useLocation() {
         setLocation((prev) => ({
           ...prev,
           loading: false,
-          error: "Permiso de ubicación denegado",
+          error: t().location_permission_denied,
           hasInitialFix: false,
         }));
         return;

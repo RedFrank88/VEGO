@@ -1,8 +1,11 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 export default function TabLayout() {
+  const t = useTranslation();
+
   return (
     <Tabs
       screenOptions={{
@@ -25,8 +28,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="map"
         options={{
-          title: "Mapa",
-          headerTitle: "VEGO",
+          title: t.tabs_map,
+          headerTitle: t.tabs_header_map,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="map" size={size} color={color} />
           ),
@@ -35,8 +38,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="favorites"
         options={{
-          title: "Favoritos",
-          headerTitle: "Favoritos",
+          title: t.tabs_favorites,
+          headerTitle: t.tabs_header_favorites,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart" size={size} color={color} />
           ),
@@ -45,8 +48,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Perfil",
-          headerTitle: "Mi Perfil",
+          title: t.tabs_profile,
+          headerTitle: t.tabs_header_profile,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" size={size} color={color} />
           ),

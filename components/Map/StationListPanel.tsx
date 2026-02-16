@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Station } from "../../types";
 import { StationCard } from "../Station/StationCard";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const PEEK_HEIGHT = 180;
@@ -29,6 +30,7 @@ interface Props {
 }
 
 export function StationListPanel({ stations, onStationPress }: Props) {
+  const t = useTranslation();
   const panelHeight = useRef(new Animated.Value(PEEK_HEIGHT)).current;
   const currentHeight = useRef(PEEK_HEIGHT);
   const isExpanded = useRef(false);
@@ -72,7 +74,7 @@ export function StationListPanel({ stations, onStationPress }: Props) {
         <TouchableOpacity style={styles.handleArea} onPress={togglePanel} activeOpacity={0.7}>
           <View style={styles.handle} />
           <Text style={styles.title}>
-            {stations.length} {stations.length === 1 ? "estación" : "estaciones"}
+            {stations.length} {stations.length === 1 ? t.map_station_count_one : t.map_station_count_other}
           </Text>
         </TouchableOpacity>
       </View>

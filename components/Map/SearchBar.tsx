@@ -1,6 +1,7 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
+import { useTranslation } from "../../i18n";
 
 interface Props {
   value: string;
@@ -8,13 +9,14 @@ interface Props {
 }
 
 export function SearchBar({ value, onChangeText }: Props) {
+  const t = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Ionicons name="search" size={18} color={Colors.textSecondary} />
         <TextInput
           style={styles.input}
-          placeholder="Buscar estación..."
+          placeholder={t.map_search_placeholder}
           placeholderTextColor={Colors.textSecondary}
           value={value}
           onChangeText={onChangeText}
