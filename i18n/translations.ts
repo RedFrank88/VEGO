@@ -27,6 +27,13 @@ export const translations = {
 
     // Auth - Common
     auth_fill_all_fields: "Completá todos los campos",
+    auth_email_already_in_use: "Ya existe una cuenta con este email",
+    auth_invalid_credential: "Email o contraseña incorrectos",
+    auth_forgot_password: "¿Olvidaste tu contraseña?",
+    auth_reset_password_title: "Recuperar contraseña",
+    auth_reset_password_sent: "Te enviamos un email para restablecer tu contraseña",
+    auth_reset_password_failed: "No se pudo enviar el email de recuperación",
+    auth_user_not_found: "No existe una cuenta con este email",
 
     // Common
     error: "Error",
@@ -188,6 +195,13 @@ export const translations = {
 
     // Auth - Common
     auth_fill_all_fields: "Please fill in all fields",
+    auth_email_already_in_use: "An account with this email already exists",
+    auth_invalid_credential: "Incorrect email or password",
+    auth_forgot_password: "Forgot your password?",
+    auth_reset_password_title: "Reset password",
+    auth_reset_password_sent: "We sent you an email to reset your password",
+    auth_reset_password_failed: "Could not send recovery email",
+    auth_user_not_found: "No account exists with this email",
 
     // Common
     error: "Error",
@@ -349,6 +363,13 @@ export const translations = {
 
     // Auth - Common
     auth_fill_all_fields: "Preencha todos os campos",
+    auth_email_already_in_use: "Já existe uma conta com este email",
+    auth_invalid_credential: "Email ou senha incorretos",
+    auth_forgot_password: "Esqueceu sua senha?",
+    auth_reset_password_title: "Recuperar senha",
+    auth_reset_password_sent: "Enviamos um email para redefinir sua senha",
+    auth_reset_password_failed: "Não foi possível enviar o email de recuperação",
+    auth_user_not_found: "Não existe uma conta com este email",
 
     // Common
     error: "Erro",

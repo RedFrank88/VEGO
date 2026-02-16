@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { signIn } from "../../services/auth";
+import { signIn, resetPassword, getFirebaseAuthMessage } from "../../services/auth";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useTranslation } from "../../i18n";
@@ -23,6 +23,19 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const handleForgotPassword = async () => {
+    if (!email) {
+      Alert.alert(t.error, t.auth_fill_all_fields);
+      return;
+    }
+    try {
+      await resetPassword(email);
+      Alert.alert(t.auth_reset_password_title, t.auth_reset_password_sent);
+    } catch (error: any) {
+      Alert.alert(t.error, getFirebaseAuthMessage(error));
+    }
+  };
+
   const handleLogin = async () => {
     if (!email || !password) {
       Alert.alert(t.error, t.auth_fill_all_fields);
@@ -32,7 +45,7 @@ export default function LoginScreen() {
     try {
       await signIn(email, password);
     } catch (error: any) {
-      Alert.alert(t.error, error.message || t.auth_login_failed);
+      Alert.alert(t.error, getFirebaseAuthMessage(error));
     } finally {
       setLoading(false);
     }
@@ -85,6 +98,10 @@ export default function LoginScreen() {
             <Text style={styles.buttonText}>
               {loading ? t.auth_logging_in : t.auth_login}
             </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={styles.linkText}>{t.auth_forgot_password}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -152,5 +169,12 @@ const styles = StyleSheet.create({
     fontSize: FontSize.lg,
     fontWeight: "700",
     color: Colors.textLight,
+  },
+  linkText: {
+    textAlign: "center",
+    color: Colors.primary,
+    fontSize: FontSize.sm,
+    fontWeight: "600",
+    marginTop: Spacing.sm,
   },
 });

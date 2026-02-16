@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { signUp } from "../../services/auth";
+import { signUp, resetPassword, getFirebaseAuthMessage } from "../../services/auth";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useTranslation } from "../../i18n";
@@ -23,6 +23,19 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const handleForgotPassword = async () => {
+    if (!email) {
+      Alert.alert(t.error, t.auth_fill_all_fields);
+      return;
+    }
+    try {
+      await resetPassword(email);
+      Alert.alert(t.auth_reset_password_title, t.auth_reset_password_sent);
+    } catch (error: any) {
+      Alert.alert(t.error, getFirebaseAuthMessage(error));
+    }
+  };
 
   const handleRegister = async () => {
     if (!name || !email || !password) {
@@ -37,7 +50,7 @@ export default function RegisterScreen() {
     try {
       await signUp(email, password, name);
     } catch (error: any) {
-      Alert.alert(t.error, error.message || t.auth_register_failed);
+      Alert.alert(t.error, getFirebaseAuthMessage(error));
     } finally {
       setLoading(false);
     }
@@ -101,6 +114,10 @@ export default function RegisterScreen() {
             <Text style={styles.buttonText}>
               {loading ? t.auth_registering : t.auth_register}
             </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={styles.linkText}>{t.auth_forgot_password}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => router.push("/(auth)/login")}>

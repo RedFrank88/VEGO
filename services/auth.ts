@@ -6,9 +6,29 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   deleteUser,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { doc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "./firebase";
+import { t } from "../i18n";
+
+function getFirebaseAuthMessage(error: any): string {
+  const code = error?.code;
+  const translations = t();
+  switch (code) {
+    case "auth/email-already-in-use":
+      return translations.auth_email_already_in_use;
+    case "auth/invalid-credential":
+    case "auth/wrong-password":
+      return translations.auth_invalid_credential;
+    case "auth/user-not-found":
+      return translations.auth_user_not_found;
+    default:
+      return error?.message || translations.error;
+  }
+}
+
+export { getFirebaseAuthMessage };
 
 export async function signUp(email: string, password: string, displayName: string) {
   const credential = await createUserWithEmailAndPassword(auth, email, password);
@@ -29,6 +49,10 @@ export async function signIn(email: string, password: string) {
 
 export async function signOut() {
   await firebaseSignOut(auth);
+}
+
+export async function resetPassword(email: string) {
+  await sendPasswordResetEmail(auth, email);
 }
 
 export async function deleteAccount(password: string) {
