@@ -7,6 +7,7 @@ import { useStations } from "../../hooks/useStations";
 import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { StationMarker } from "../../components/Map/StationMarker";
 import { NearestButton } from "../../components/Map/NearestButton";
+import { MyLocationButton } from "../../components/Map/MyLocationButton";
 import { SearchBar } from "../../components/Map/SearchBar";
 import { FilterChips } from "../../components/Map/FilterChips";
 import { StationListPanel } from "../../components/Map/StationListPanel";
@@ -102,6 +103,18 @@ export default function MapScreen() {
     router.push(`/station/${nearest.id}`);
   }, [getNearestStation, location, router]);
 
+  const handleMyLocationPress = useCallback(() => {
+    mapRef.current?.animateToRegion(
+      {
+        latitude: location.latitude,
+        longitude: location.longitude,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
+      },
+      800
+    );
+  }, [location.latitude, location.longitude]);
+
   return (
     <View style={styles.container}>
       <MapView
@@ -109,7 +122,7 @@ export default function MapScreen() {
         style={styles.map}
         initialRegion={URUGUAY_REGION}
         showsUserLocation
-        showsMyLocationButton
+        showsMyLocationButton={false}
         onPress={() => Keyboard.dismiss()}
       >
         {filteredStations.map((station) => (
@@ -126,6 +139,7 @@ export default function MapScreen() {
         <FilterChips activeFilter={filterStatus} onFilterChange={setFilterStatus} />
       </View>
 
+      <MyLocationButton onPress={handleMyLocationPress} />
       <NearestButton onPress={handleNearestPress} />
       <StationListPanel
         stations={stationsWithDistance}
