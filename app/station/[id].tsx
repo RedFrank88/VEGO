@@ -66,28 +66,32 @@ export default function StationDetailScreen() {
       return;
     }
     try {
-      let updatedConnectors = station.connectors;
-      if (status === "occupied" && connectorId) {
+      let updatedConnectors: typeof station.connectors | undefined;
+      if (connectorId) {
+        const newStatus = status === "broken" ? "broken" : "occupied";
         updatedConnectors = station.connectors.map((c) =>
-          c.id === connectorId ? { ...c, status: "occupied" as StationStatus } : c
+          c.id === connectorId ? { ...c, status: newStatus as StationStatus } : c
         );
       }
+
       const connectorIdx = connectorId
         ? station.connectors.findIndex((c) => c.id === connectorId) + 1
-        : undefined;
+        : null;
+
+      const checkIn: Record<string, any> = {
+        userId: user.uid,
+        userName: user.displayName || "Anónimo",
+        status,
+        timestamp: Date.now(),
+      };
+      if (connectorId) checkIn.connectorId = connectorId;
+      if (connectorIdx) checkIn.connectorLabel = `#${connectorIdx}`;
+      if (duration) checkIn.estimatedDuration = duration;
 
       await updateStationStatus(
         station.id,
         status,
-        {
-          userId: user.uid,
-          userName: user.displayName || "Anónimo",
-          status,
-          connectorId,
-          connectorLabel: connectorIdx ? `#${connectorIdx}` : undefined,
-          timestamp: Date.now(),
-          estimatedDuration: duration,
-        },
+        checkIn as any,
         updatedConnectors
       );
       Alert.alert("Check-in exitoso", "Gracias por reportar el estado del cargador");

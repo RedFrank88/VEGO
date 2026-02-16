@@ -49,7 +49,14 @@ export async function updateStationStatus(
 ) {
   const ref = doc(db, STATIONS_COL, stationId);
   const update: Record<string, any> = { status, lastCheckin: checkIn };
-  if (connectors) update.connectors = connectors;
+  if (connectors) {
+    update.connectors = connectors;
+    const hasAvailable = connectors.some((c) => c.status === "available");
+    const allBroken = connectors.every((c) => c.status === "broken");
+    if (allBroken) update.status = "broken";
+    else if (!hasAvailable) update.status = "occupied";
+    else update.status = "available";
+  }
   await updateDoc(ref, update);
 }
 

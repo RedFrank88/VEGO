@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   View,
   Text,
@@ -30,17 +30,26 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
   const [selectedDuration, setSelectedDuration] = useState<number>(30);
   const [selectedConnector, setSelectedConnector] = useState<string | null>(null);
 
-  const availableConnectors = station.connectors?.filter(
-    (c) => c.status === "available"
-  ) ?? [];
+  const needsConnector = selectedStatus === "occupied" || selectedStatus === "broken";
+
+  const selectableConnectors = useMemo(() => {
+    if (!station.connectors) return [];
+    if (selectedStatus === "occupied") {
+      return station.connectors.filter((c) => c.status === "available");
+    }
+    if (selectedStatus === "broken") {
+      return station.connectors.filter((c) => c.status !== "broken");
+    }
+    return [];
+  }, [station.connectors, selectedStatus]);
 
   const handleConfirm = () => {
-    if (selectedStatus === "occupied" && !selectedConnector) {
+    if (needsConnector && !selectedConnector) {
       return;
     }
     onCheckIn(
       selectedStatus,
-      selectedStatus === "occupied" ? selectedConnector ?? undefined : undefined,
+      needsConnector ? selectedConnector ?? undefined : undefined,
       selectedStatus === "occupied" ? selectedDuration : undefined
     );
     setSelectedConnector(null);
@@ -83,7 +92,7 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
                 ]}
                 onPress={() => {
                   setSelectedStatus(option.value);
-                  if (option.value !== "occupied") setSelectedConnector(null);
+                  setSelectedConnector(null);
                 }}
               >
                 <Ionicons
@@ -106,11 +115,15 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
               </TouchableOpacity>
             ))}
 
-            {selectedStatus === "occupied" && (
+            {needsConnector && (
               <>
-                <Text style={styles.sectionTitle}>¿En qué conector estás cargando?</Text>
-                {availableConnectors.length > 0 ? (
-                  availableConnectors.map((connector) => (
+                <Text style={styles.sectionTitle}>
+                  {selectedStatus === "occupied"
+                    ? "¿En qué conector estás cargando?"
+                    : "¿Qué conector está averiado?"}
+                </Text>
+                {selectableConnectors.length > 0 ? (
+                  selectableConnectors.map((connector) => (
                     <TouchableOpacity
                       key={connector.id}
                       style={[
@@ -158,6 +171,8 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
                   </Text>
                 )}
 
+                {selectedStatus === "occupied" && (
+                <>
                 <Text style={styles.sectionTitle}>Tiempo estimado de carga</Text>
                 <View style={styles.durationsRow}>
                   {DURATIONS.map((d) => (
@@ -180,6 +195,8 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
                     </TouchableOpacity>
                   ))}
                 </View>
+                </>
+                )}
               </>
             )}
           </ScrollView>
@@ -187,10 +204,10 @@ export function CheckInModal({ visible, station, onClose, onCheckIn }: Props) {
           <TouchableOpacity
             style={[
               styles.confirmButton,
-              selectedStatus === "occupied" && !selectedConnector && styles.confirmDisabled,
+              needsConnector && !selectedConnector && styles.confirmDisabled,
             ]}
             onPress={handleConfirm}
-            disabled={selectedStatus === "occupied" && !selectedConnector}
+            disabled={needsConnector && !selectedConnector}
           >
             <Text style={styles.confirmText}>Confirmar Check-in</Text>
           </TouchableOpacity>
