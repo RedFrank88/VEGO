@@ -3,8 +3,11 @@ import {
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
   updateProfile,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  deleteUser,
 } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "./firebase";
 
 export async function signUp(email: string, password: string, displayName: string) {
@@ -26,4 +29,14 @@ export async function signIn(email: string, password: string) {
 
 export async function signOut() {
   await firebaseSignOut(auth);
+}
+
+export async function deleteAccount(password: string) {
+  const user = auth.currentUser;
+  if (!user || !user.email) throw new Error("No authenticated user");
+
+  const credential = EmailAuthProvider.credential(user.email, password);
+  await reauthenticateWithCredential(user, credential);
+  await deleteDoc(doc(db, "users", user.uid));
+  await deleteUser(user);
 }

@@ -6,6 +6,7 @@ import { useLocation } from "../../hooks/useLocation";
 import { useStations } from "../../hooks/useStations";
 import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { StationMarker } from "../../components/Map/StationMarker";
+import { UserLocationMarker } from "../../components/Map/UserLocationMarker";
 import { NearestButton } from "../../components/Map/NearestButton";
 import { MyLocationButton } from "../../components/Map/MyLocationButton";
 import { NorthButton } from "../../components/Map/NorthButton";
@@ -13,6 +14,8 @@ import { FilterChips } from "../../components/Map/FilterChips";
 import { StationListPanel } from "../../components/Map/StationListPanel";
 import { Station } from "../../types";
 import { t as getT } from "../../i18n";
+import { useSettingsStore } from "../../stores/settingsStore";
+import { DEFAULT_AVATAR_ID } from "../../constants/avatars";
 import uteStations from "../../data/ute-stations.json";
 
 const URUGUAY_REGION: Region = {
@@ -35,6 +38,8 @@ export default function MapScreen() {
     setStations,
     getFilteredStations,
   } = useStationStore();
+  const avatarId = useSettingsStore((s) => s.avatarId);
+  const useCustomAvatar = avatarId !== DEFAULT_AVATAR_ID;
 
   const allStations = useMemo(() => {
     if (firestoreStations.length > 0) return firestoreStations;
@@ -124,7 +129,7 @@ export default function MapScreen() {
         ref={mapRef}
         style={styles.map}
         initialRegion={URUGUAY_REGION}
-        showsUserLocation
+        showsUserLocation={!useCustomAvatar}
         showsMyLocationButton={false}
         onPress={() => Keyboard.dismiss()}
       >
@@ -135,6 +140,14 @@ export default function MapScreen() {
             onPress={handleStationPress}
           />
         ))}
+        {useCustomAvatar && (
+          <UserLocationMarker
+            latitude={location.latitude}
+            longitude={location.longitude}
+            heading={location.heading}
+            avatarId={avatarId}
+          />
+        )}
       </MapView>
 
       <View style={styles.overlay}>

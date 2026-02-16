@@ -5,6 +5,7 @@ import { t } from "../i18n";
 interface LocationState {
   latitude: number;
   longitude: number;
+  heading: number | null;
   loading: boolean;
   error: string | null;
   hasInitialFix: boolean;
@@ -14,6 +15,7 @@ export function useLocation() {
   const [location, setLocation] = useState<LocationState>({
     latitude: -34.9,
     longitude: -56.2,
+    heading: null,
     loading: true,
     error: null,
     hasInitialFix: false,
@@ -38,6 +40,7 @@ export function useLocation() {
       setLocation({
         latitude: current.coords.latitude,
         longitude: current.coords.longitude,
+        heading: current.coords.heading ?? null,
         loading: false,
         error: null,
         hasInitialFix: true,
@@ -52,6 +55,7 @@ export function useLocation() {
           setLocation((prev) => ({
             latitude: loc.coords.latitude,
             longitude: loc.coords.longitude,
+            heading: loc.coords.heading ?? prev.heading,
             loading: false,
             error: null,
             hasInitialFix: prev.hasInitialFix,

@@ -140,6 +140,22 @@ export const translations = {
     settings_info: "Información",
     settings_version: "Versión",
 
+    // Settings - Avatar
+    settings_map_avatar: "Avatar en el mapa",
+    settings_avatar_default: "Punto azul (por defecto)",
+    settings_avatar_cars: "Autos",
+    settings_avatar_animals: "Animalitos",
+
+    // Settings - Delete Account
+    settings_delete_account: "Borrar cuenta",
+    settings_delete_confirm_title: "¿Borrar tu cuenta?",
+    settings_delete_confirm_message: "Esta acción es irreversible. Se eliminarán todos tus datos, check-ins y favoritos.",
+    settings_delete_enter_password: "Ingresá tu contraseña para confirmar",
+    settings_delete_password_placeholder: "Contraseña",
+    settings_delete_success: "Cuenta eliminada correctamente",
+    settings_delete_failed: "No se pudo borrar la cuenta",
+    settings_delete_button: "Borrar mi cuenta",
+
     // Location
     location_permission_denied: "Permiso de ubicación denegado",
   },
@@ -285,6 +301,22 @@ export const translations = {
     settings_info: "Information",
     settings_version: "Version",
 
+    // Settings - Avatar
+    settings_map_avatar: "Map avatar",
+    settings_avatar_default: "Blue dot (default)",
+    settings_avatar_cars: "Cars",
+    settings_avatar_animals: "Animals",
+
+    // Settings - Delete Account
+    settings_delete_account: "Delete account",
+    settings_delete_confirm_title: "Delete your account?",
+    settings_delete_confirm_message: "This action is irreversible. All your data, check-ins and favorites will be deleted.",
+    settings_delete_enter_password: "Enter your password to confirm",
+    settings_delete_password_placeholder: "Password",
+    settings_delete_success: "Account deleted successfully",
+    settings_delete_failed: "Could not delete account",
+    settings_delete_button: "Delete my account",
+
     // Location
     location_permission_denied: "Location permission denied",
   },
@@ -429,6 +461,22 @@ export const translations = {
     settings_language: "Idioma",
     settings_info: "Informação",
     settings_version: "Versão",
+
+    // Settings - Avatar
+    settings_map_avatar: "Avatar no mapa",
+    settings_avatar_default: "Ponto azul (padrão)",
+    settings_avatar_cars: "Carros",
+    settings_avatar_animals: "Animais",
+
+    // Settings - Delete Account
+    settings_delete_account: "Excluir conta",
+    settings_delete_confirm_title: "Excluir sua conta?",
+    settings_delete_confirm_message: "Esta ação é irreversível. Todos os seus dados, check-ins e favoritos serão excluídos.",
+    settings_delete_enter_password: "Digite sua senha para confirmar",
+    settings_delete_password_placeholder: "Senha",
+    settings_delete_success: "Conta excluída com sucesso",
+    settings_delete_failed: "Não foi possível excluir a conta",
+    settings_delete_button: "Excluir minha conta",
 
     // Location
     location_permission_denied: "Permissão de localização negada",
