@@ -262,5 +262,398 @@
       { "id": "ute-020-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
+  },
+  {
+    "id": "ute-021",
+    "name": "UTE Cargador - Pocitos",
+    "address": "Av. Brasil y Buxareo, Montevideo",
+    "latitude": -34.9165,
+    "longitude": -56.1512,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-021-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-021-b", "type": "Type2", "power": 22, "status": "occupied" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-022",
+    "name": "UTE Cargador - Carrasco",
+    "address": "Av. Bolivia y Av. Italia, Montevideo",
+    "latitude": -34.8728,
+    "longitude": -56.0583,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-022-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-022-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-023",
+    "name": "ANCAP - Av. Italia, Montevideo",
+    "address": "Av. Italia 5775, Montevideo",
+    "latitude": -34.8818,
+    "longitude": -56.0922,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-023-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-023-b", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-023-c", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-024",
+    "name": "UTE Cargador - Parque Rodó",
+    "address": "Rambla Wilson y Pablo de María, Montevideo",
+    "latitude": -34.9214,
+    "longitude": -56.1688,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-024-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-024-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-025",
+    "name": "UTE Cargador - Nuevocentro Shopping",
+    "address": "Av. Luis A. de Herrera 3365, Montevideo",
+    "latitude": -34.8807,
+    "longitude": -56.1711,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-025-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-025-b", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-025-c", "type": "CCS", "power": 50, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-026",
+    "name": "UTE Cargador - Costa Urbana Shopping",
+    "address": "Av. Giannattasio km 20, Ciudad de la Costa",
+    "latitude": -34.8472,
+    "longitude": -55.9914,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-026-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-026-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-027",
+    "name": "UTE Cargador - Cordón",
+    "address": "18 de Julio y Yí, Montevideo",
+    "latitude": -34.9050,
+    "longitude": -56.1850,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-027-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-027-b", "type": "Type2", "power": 22, "status": "broken" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-028",
+    "name": "UTE Cargador - Malvín",
+    "address": "Rambla O'Higgins y Michigan, Montevideo",
+    "latitude": -34.9080,
+    "longitude": -56.1060,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-028-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-028-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-029",
+    "name": "ANCAP - Rambla Portuaria, Montevideo",
+    "address": "Rambla Portuaria y Maciel, Montevideo",
+    "latitude": -34.9085,
+    "longitude": -56.2050,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-029-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-029-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-030",
+    "name": "UTE Cargador - Unión",
+    "address": "8 de Octubre y José L. Terra, Montevideo",
+    "latitude": -34.8768,
+    "longitude": -56.1430,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-030-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-030-b", "type": "Type2", "power": 22, "status": "occupied" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-031",
+    "name": "UTE Cargador - Rivera",
+    "address": "Av. Sarandí 550, Rivera",
+    "latitude": -30.9045,
+    "longitude": -55.5308,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-031-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-031-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-032",
+    "name": "UTE Cargador - Tacuarembó",
+    "address": "18 de Julio y 25 de Mayo, Tacuarembó",
+    "latitude": -31.7106,
+    "longitude": -55.9800,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-032-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-032-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-033",
+    "name": "UTE Cargador - Melo, Cerro Largo",
+    "address": "Av. Aparicio Saravia, Melo",
+    "latitude": -32.3669,
+    "longitude": -54.1744,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-033-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-033-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-034",
+    "name": "UTE Cargador - Treinta y Tres",
+    "address": "Manuel Freire y Pablo Zufriategui, Treinta y Tres",
+    "latitude": -33.2320,
+    "longitude": -54.3830,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-034-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-034-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-035",
+    "name": "UTE Cargador - Mercedes, Soriano",
+    "address": "Colón y Giménez, Mercedes",
+    "latitude": -33.2525,
+    "longitude": -58.0299,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-035-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-035-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-036",
+    "name": "UTE Cargador - Artigas",
+    "address": "Av. Lecueder y Ruta 30, Artigas",
+    "latitude": -30.4007,
+    "longitude": -56.4793,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-036-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-036-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-037",
+    "name": "UTE Cargador - Minas, Lavalleja",
+    "address": "25 de Mayo y Timoteo Aparicio, Minas",
+    "latitude": -34.3759,
+    "longitude": -55.2339,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-037-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-037-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-038",
+    "name": "UTE Cargador - Florida",
+    "address": "Independencia y Barreiro, Florida",
+    "latitude": -34.0973,
+    "longitude": -56.2139,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-038-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-038-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-039",
+    "name": "UTE Cargador - San José de Mayo",
+    "address": "18 de Julio y Asamblea, San José de Mayo",
+    "latitude": -34.3372,
+    "longitude": -56.7133,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-039-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-039-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-040",
+    "name": "UTE Cargador - Canelones",
+    "address": "Ruta 5 y Av. Artigas, Canelones",
+    "latitude": -34.5228,
+    "longitude": -56.2783,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-040-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-040-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-041",
+    "name": "ANCAP - Ruta 1 km 26, San José",
+    "address": "Ruta 1 km 26, Libertad, San José",
+    "latitude": -34.6320,
+    "longitude": -56.3958,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-041-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-041-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-042",
+    "name": "ANCAP - Ruta 1 km 121, Colonia",
+    "address": "Ruta 1 km 121, Rosario, Colonia",
+    "latitude": -34.3150,
+    "longitude": -57.3484,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-042-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-042-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-043",
+    "name": "ANCAP - Ruta 5 km 65, Florida",
+    "address": "Ruta 5 km 65, Mendoza, Florida",
+    "latitude": -34.3880,
+    "longitude": -56.2530,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-043-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-043-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-044",
+    "name": "ANCAP - Ruta 5 km 183, Durazno",
+    "address": "Ruta 5 km 183, Durazno",
+    "latitude": -33.4300,
+    "longitude": -56.4580,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-044-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-044-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-045",
+    "name": "ANCAP - Ruta 5 km 282, Tacuarembó",
+    "address": "Ruta 5 km 282, Paso de los Toros",
+    "latitude": -32.8180,
+    "longitude": -56.5200,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-045-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-045-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-046",
+    "name": "ANCAP - Ruta 9 km 118, Maldonado",
+    "address": "Ruta 9 km 118, Aiguá, Maldonado",
+    "latitude": -34.2039,
+    "longitude": -54.7564,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-046-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-046-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-047",
+    "name": "UTE Cargador - Maldonado Centro",
+    "address": "18 de Julio y Dodera, Maldonado",
+    "latitude": -34.9065,
+    "longitude": -54.9596,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-047-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-047-b", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-047-c", "type": "CCS", "power": 50, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-048",
+    "name": "UTE Cargador Ultrarrápido - Punta del Este",
+    "address": "Rambla Artigas y Calle 12, Punta del Este",
+    "latitude": -34.9680,
+    "longitude": -54.9503,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-048-a", "type": "CCS", "power": 150, "status": "available" },
+      { "id": "ute-048-b", "type": "CCS", "power": 150, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-049",
+    "name": "ANCAP - Chuy, Rocha",
+    "address": "Ruta 9 y Av. Brasil, Chuy",
+    "latitude": -33.6942,
+    "longitude": -53.4583,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-049-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-049-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-050",
+    "name": "UTE Cargador - La Paloma, Rocha",
+    "address": "Av. Solari, La Paloma, Rocha",
+    "latitude": -34.6542,
+    "longitude": -54.1667,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-050-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-050-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
   }
 ]
