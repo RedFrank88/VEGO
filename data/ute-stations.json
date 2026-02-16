@@ -655,5 +655,451 @@
       { "id": "ute-050-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
+  },
+  {
+    "id": "ute-051",
+    "name": "UTE Cargador - Joanicó",
+    "address": "Joanicó esq. Bv. José Batlle y Ordóñez, Montevideo",
+    "latitude": -34.8760,
+    "longitude": -56.1570,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-051-a", "type": "CCS", "power": 30, "status": "available" },
+      { "id": "ute-051-b", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-051-c", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-051-d", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-052",
+    "name": "UTE Cargador - Intendencia",
+    "address": "Santiago de Chile esq. San José, Montevideo",
+    "latitude": -34.9060,
+    "longitude": -56.1920,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-052-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-052-b", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-052-c", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-052-d", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-052-e", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-052-f", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-053",
+    "name": "UTE Cargador - Parque de la Amistad",
+    "address": "Alejo Rosell y Rius esq. Av. Rivera, Montevideo",
+    "latitude": -34.8910,
+    "longitude": -56.1540,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-053-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-053-b", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-053-c", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-053-d", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-054",
+    "name": "UTE Cargador - Golf",
+    "address": "Bulevar Gral. Artigas y Errazquin, Montevideo",
+    "latitude": -34.8920,
+    "longitude": -56.1650,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-054-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-054-b", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-054-c", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-054-d", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-054-e", "type": "CHAdeMO", "power": 50, "status": "available" },
+      { "id": "ute-054-f", "type": "CCS", "power": 50, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-055",
+    "name": "UTE Cargador - La Cumparsita",
+    "address": "La Cumparsita esq. Ejido, Montevideo",
+    "latitude": -34.9080,
+    "longitude": -56.1900,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-055-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-055-b", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-055-c", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-056",
+    "name": "UTE Cargador - Plaza San Martín",
+    "address": "Soldados Orientales de S. Martín esq. Uruguayana, Montevideo",
+    "latitude": -34.8800,
+    "longitude": -56.1620,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-056-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-056-b", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-056-c", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-056-d", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-057",
+    "name": "UTE Cargador - Estadio Centenario",
+    "address": "Av. Dr. Américo Ricaldoni esq. Av. Italia, Montevideo",
+    "latitude": -34.8940,
+    "longitude": -56.1530,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-057-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-057-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-058",
+    "name": "UTE Cargador - Plaza Colón",
+    "address": "Vidiella entre Av. Eugenio Garzón y A. Passadore, Montevideo",
+    "latitude": -34.8720,
+    "longitude": -56.2200,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-058-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-058-b", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-059",
+    "name": "UTE Cargador - Plaza Pedro Poveda DC",
+    "address": "Enrique García Peña s/n, Montevideo",
+    "latitude": -34.8650,
+    "longitude": -56.1150,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-059-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-059-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-060",
+    "name": "UTE Cargador - Parking Cinemateca",
+    "address": "Bartolomé Mitre 1224, Montevideo",
+    "latitude": -34.9080,
+    "longitude": -56.2000,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-060-a", "type": "CCS", "power": 30, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-061",
+    "name": "UTE Cargador - Gremial del Taxi CPATU",
+    "address": "Burgues 3143, Montevideo",
+    "latitude": -34.8830,
+    "longitude": -56.1800,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-061-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-061-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-062",
+    "name": "UTE Cargador - Macromercado San Martín",
+    "address": "San Martín 3222, Montevideo",
+    "latitude": -34.8860,
+    "longitude": -56.1790,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-062-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-062-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-063",
+    "name": "UTE Cargador - Plaza Paul Harris",
+    "address": "Barradas y Av. Italia, Montevideo",
+    "latitude": -34.8950,
+    "longitude": -56.1240,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-063-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-063-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-063-c", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-063-d", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-064",
+    "name": "UTE Cargador - Terminal del Cerro",
+    "address": "Pedro Castellino y Ramón Tabárez, Montevideo",
+    "latitude": -34.8830,
+    "longitude": -56.2510,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-064-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-064-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-064-c", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-065",
+    "name": "UTE Cargador - Hospital BSE",
+    "address": "Av. José Pedro Varela 3420, Montevideo",
+    "latitude": -34.8780,
+    "longitude": -56.1680,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-065-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-065-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-066",
+    "name": "UTE Cargador - Batoví",
+    "address": "Batoví esq. Dr. Luis P. Lenguas, Montevideo",
+    "latitude": -34.8960,
+    "longitude": -56.1750,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-066-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-066-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-066-c", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-066-d", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-067",
+    "name": "UTE Cargador - Hospital de Ojos Saint Bois",
+    "address": "Camino Fauquet y Guanahani, Montevideo",
+    "latitude": -34.8280,
+    "longitude": -56.2640,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-067-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-067-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-067-c", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-067-d", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-068",
+    "name": "UTE Cargador - Av. Fco. Soca y Libertad",
+    "address": "Av. Francisco Soca esq. Libertad, Montevideo",
+    "latitude": -34.9100,
+    "longitude": -56.1520,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-068-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-068-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-068-c", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-068-d", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-069",
+    "name": "UTE Cargador - Casino Parque Hotel",
+    "address": "Dr. Luis Piera y Lauro Müller, Montevideo",
+    "latitude": -34.9100,
+    "longitude": -56.1700,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-069-a", "type": "Type2", "power": 43, "status": "available" },
+      { "id": "ute-069-b", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-070",
+    "name": "UTE Cargador - Hotel NH Montevideo",
+    "address": "Carlos A. Miles y Misiones, Montevideo",
+    "latitude": -34.9065,
+    "longitude": -56.2040,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-070-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-070-b", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-070-c", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-070-d", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-071",
+    "name": "UTE Cargador - Skatepark Carrasco",
+    "address": "Costa Rica y Eduardo Couture, Montevideo",
+    "latitude": -34.8720,
+    "longitude": -56.0450,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-071-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-071-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-071-c", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-071-d", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-072",
+    "name": "ANCAP - Ruta 1 y Camino Flores",
+    "address": "Ruta 1 y Camino Flores, Paso de la Arena, Montevideo",
+    "latitude": -34.8400,
+    "longitude": -56.2850,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-072-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-072-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-073",
+    "name": "UTE Cargador - Plaza Samuel Lafone",
+    "address": "Ruperto Perez Martinez y Heredia, Montevideo",
+    "latitude": -34.8650,
+    "longitude": -56.2250,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-073-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-073-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-074",
+    "name": "UTE Cargador - UAM",
+    "address": "Camino Perez y Ruta 5, Montevideo",
+    "latitude": -34.8350,
+    "longitude": -56.1950,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-074-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-074-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-074-c", "type": "Type2", "power": 43, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-075",
+    "name": "UTE Cargador - Museo Zorrilla",
+    "address": "José Zorrilla de San Martín 96, Montevideo",
+    "latitude": -34.9220,
+    "longitude": -56.1560,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-075-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-075-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-076",
+    "name": "UTE Cargador - Terminal del Cerro 2",
+    "address": "Pedro Castellino y Ramón Tabárez, Montevideo",
+    "latitude": -34.8835,
+    "longitude": -56.2515,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-076-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-076-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-077",
+    "name": "UTE Cargador - FING Sosa",
+    "address": "Av. Julio María Sosa, Montevideo",
+    "latitude": -34.9170,
+    "longitude": -56.1670,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-077-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-077-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-078",
+    "name": "UTE Cargador - FING Reissig",
+    "address": "Av. Julio Herrera y Reissig, Montevideo",
+    "latitude": -34.9180,
+    "longitude": -56.1600,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-078-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-078-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-079",
+    "name": "UTE Cargador - Palacio de la Luz Aguilar",
+    "address": "Gral. Fausto Aguilar entre Paraguay y Mendoza, Montevideo",
+    "latitude": -34.8850,
+    "longitude": -56.1960,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-079-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-079-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-080",
+    "name": "UTE Cargador - Palacio de la Luz DC Mendoza",
+    "address": "Mendoza esq. Fausto Aguilar, Montevideo",
+    "latitude": -34.8845,
+    "longitude": -56.1955,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-080-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-080-b", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-080-c", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-080-d", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-081",
+    "name": "UTE Cargador - Palacio Legislativo DC",
+    "address": "Av. de las Leyes y Colombia, Montevideo",
+    "latitude": -34.8920,
+    "longitude": -56.1830,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-081-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-081-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
+  },
+  {
+    "id": "ute-082",
+    "name": "UTE Cargador - Banco Central del Uruguay",
+    "address": "Florida esq. Av. Uruguay, Montevideo",
+    "latitude": -34.9060,
+    "longitude": -56.1990,
+    "status": "available",
+    "connectors": [
+      { "id": "ute-082-a", "type": "CCS", "power": 60, "status": "available" },
+      { "id": "ute-082-b", "type": "CCS", "power": 60, "status": "available" }
+    ],
+    "operator": "UTE"
   }
 ]
