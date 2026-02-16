@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { useAuthStore } from "../../stores/authStore";
 import { useLocation } from "../../hooks/useLocation";
-import { updateStationStatus } from "../../services/stations";
+import { updateStationStatus, releaseConnector } from "../../services/stations";
 import { StatusBadge } from "../../components/Station/StatusBadge";
 import { CheckInModal } from "../../components/Station/CheckInModal";
 import { Station, StationStatus, Connector } from "../../types";
@@ -51,22 +51,62 @@ export default function StationDetailScreen() {
     );
   }
 
-  const handleCheckIn = async (status: StationStatus, duration?: number) => {
+  const userHasActiveCheckin = useMemo(() => {
+    if (!user || !station.lastCheckin) return false;
+    return (
+      station.lastCheckin.userId === user.uid &&
+      station.lastCheckin.status === "occupied" &&
+      station.lastCheckin.connectorId
+    );
+  }, [user, station.lastCheckin]);
+
+  const handleCheckIn = async (status: StationStatus, connectorId?: string, duration?: number) => {
     if (!user) {
       Alert.alert("Error", "Necesitás iniciar sesión para hacer check-in");
       return;
     }
     try {
-      await updateStationStatus(station.id, status, {
-        userId: user.uid,
-        userName: user.displayName || "Anónimo",
+      let updatedConnectors = station.connectors;
+      if (status === "occupied" && connectorId) {
+        updatedConnectors = station.connectors.map((c) =>
+          c.id === connectorId ? { ...c, status: "occupied" as StationStatus } : c
+        );
+      }
+      const connectorIdx = connectorId
+        ? station.connectors.findIndex((c) => c.id === connectorId) + 1
+        : undefined;
+
+      await updateStationStatus(
+        station.id,
         status,
-        timestamp: Date.now(),
-        estimatedDuration: duration,
-      });
+        {
+          userId: user.uid,
+          userName: user.displayName || "Anónimo",
+          status,
+          connectorId,
+          connectorLabel: connectorIdx ? `#${connectorIdx}` : undefined,
+          timestamp: Date.now(),
+          estimatedDuration: duration,
+        },
+        updatedConnectors
+      );
       Alert.alert("Check-in exitoso", "Gracias por reportar el estado del cargador");
     } catch (error: any) {
       Alert.alert("Error", error.message || "No se pudo realizar el check-in");
+    }
+  };
+
+  const handleRelease = async () => {
+    if (!station.lastCheckin?.connectorId) return;
+    try {
+      await releaseConnector(
+        station.id,
+        station.lastCheckin.connectorId,
+        station.connectors
+      );
+      Alert.alert("Conector liberado", "El conector fue marcado como disponible");
+    } catch (error: any) {
+      Alert.alert("Error", error.message || "No se pudo liberar el conector");
     }
   };
 
@@ -158,6 +198,13 @@ export default function StationDetailScreen() {
               label="Por"
               value={lastCheckin.userName}
             />
+            {lastCheckin.connectorLabel && (
+              <DetailRow
+                icon="flash-outline"
+                label="Conector"
+                value={lastCheckin.connectorLabel}
+              />
+            )}
             <DetailRow
               icon="time-outline"
               label="Hace"
@@ -186,13 +233,23 @@ export default function StationDetailScreen() {
       </ScrollView>
 
       <View style={styles.bottomBar}>
-        <TouchableOpacity
-          style={styles.checkInButton}
-          onPress={() => setShowCheckIn(true)}
-        >
-          <Ionicons name="location" size={20} color={Colors.textLight} />
-          <Text style={styles.checkInText}>Hacer Check-in</Text>
-        </TouchableOpacity>
+        {userHasActiveCheckin ? (
+          <TouchableOpacity
+            style={styles.releaseButton}
+            onPress={handleRelease}
+          >
+            <Ionicons name="log-out-outline" size={20} color={Colors.textLight} />
+            <Text style={styles.checkInText}>Liberar conector {station.lastCheckin?.connectorLabel}</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={styles.checkInButton}
+            onPress={() => setShowCheckIn(true)}
+          >
+            <Ionicons name="location" size={20} color={Colors.textLight} />
+            <Text style={styles.checkInText}>Hacer Check-in</Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       <CheckInModal
@@ -383,5 +440,14 @@ const styles = StyleSheet.create({
     fontSize: FontSize.lg,
     fontWeight: "700",
     color: Colors.textLight,
+  },
+  releaseButton: {
+    backgroundColor: Colors.warning,
+    paddingVertical: Spacing.md,
+    borderRadius: BorderRadius.lg,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: Spacing.sm,
   },
 });

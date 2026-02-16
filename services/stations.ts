@@ -44,10 +44,30 @@ export async function getStations(): Promise<Station[]> {
 export async function updateStationStatus(
   stationId: string,
   status: StationStatus,
-  checkIn: CheckIn
+  checkIn: CheckIn,
+  connectors?: Station["connectors"]
 ) {
   const ref = doc(db, STATIONS_COL, stationId);
-  await updateDoc(ref, { status, lastCheckin: checkIn });
+  const update: Record<string, any> = { status, lastCheckin: checkIn };
+  if (connectors) update.connectors = connectors;
+  await updateDoc(ref, update);
+}
+
+export async function releaseConnector(
+  stationId: string,
+  connectorId: string,
+  connectors: Station["connectors"]
+) {
+  const ref = doc(db, STATIONS_COL, stationId);
+  const updatedConnectors = connectors.map((c) =>
+    c.id === connectorId ? { ...c, status: "available" as StationStatus } : c
+  );
+  const hasAvailable = updatedConnectors.some((c) => c.status === "available");
+  await updateDoc(ref, {
+    connectors: updatedConnectors,
+    status: hasAvailable ? "available" : "occupied",
+    lastCheckin: null,
+  });
 }
 
 export async function seedStations() {

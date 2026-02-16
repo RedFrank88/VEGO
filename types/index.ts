@@ -40,6 +40,7 @@ export interface CheckIn {
   userName: string;
   status: StationStatus;
   connectorId?: string;
+  connectorLabel?: string;
   timestamp: number;
   estimatedDuration?: number; // minutes
 }
