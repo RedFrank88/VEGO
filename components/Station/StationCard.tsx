@@ -20,6 +20,12 @@ export function StationCard({ station, distance, onPress }: Props) {
   const { favoriteIds, toggleFavorite } = useStationStore();
   const isFavorite = favoriteIds.includes(station.id);
 
+  const connectors = station.connectors ?? [];
+  const available = connectors.filter((c) => c.status === "available").length;
+  const total = connectors.length;
+  const mainPower = connectors[0]?.power ?? station.power ?? 0;
+  const mainType = connectors[0]?.type ?? station.connectorType ?? "Type2";
+
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
       <View style={styles.header}>
@@ -47,7 +53,9 @@ export function StationCard({ station, distance, onPress }: Props) {
           {distance !== undefined && (
             <Text style={styles.distance}>{formatDistance(distance)}</Text>
           )}
-          <Text style={styles.power}>{station.connectorCount}x {station.connectorType} · {station.power} kW</Text>
+          <Text style={styles.power}>
+            {available}/{total} libres · {mainType} {mainPower} kW
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

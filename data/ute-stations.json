@@ -6,9 +6,12 @@
     "latitude": -34.8943,
     "longitude": -56.1653,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 4,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-001-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-001-b", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-001-c", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-001-d", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -18,9 +21,10 @@
     "latitude": -34.9240,
     "longitude": -56.1586,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-002-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-002-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -30,9 +34,10 @@
     "latitude": -34.9048,
     "longitude": -56.1364,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 30,
+    "connectors": [
+      { "id": "ute-003-a", "type": "CCS", "power": 30, "status": "available" },
+      { "id": "ute-003-b", "type": "CCS", "power": 30, "status": "occupied" }
+    ],
     "operator": "UTE"
   },
   {
@@ -42,9 +47,10 @@
     "latitude": -34.8855,
     "longitude": -56.1951,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-004-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-004-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -54,9 +60,10 @@
     "latitude": -34.9052,
     "longitude": -56.2114,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-005-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-005-b", "type": "Type2", "power": 22, "status": "broken" }
+    ],
     "operator": "UTE"
   },
   {
@@ -66,9 +73,12 @@
     "latitude": -34.8556,
     "longitude": -56.1326,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 4,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-006-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-006-b", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-006-c", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-006-d", "type": "Type2", "power": 22, "status": "occupied" }
+    ],
     "operator": "UTE"
   },
   {
@@ -78,9 +88,10 @@
     "latitude": -34.8977,
     "longitude": -56.1923,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-007-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-007-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -90,9 +101,10 @@
     "latitude": -34.9058,
     "longitude": -56.1408,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 150,
+    "connectors": [
+      { "id": "ute-008-a", "type": "CCS", "power": 150, "status": "available" },
+      { "id": "ute-008-b", "type": "CCS", "power": 150, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -102,9 +114,10 @@
     "latitude": -34.9624,
     "longitude": -54.9439,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 50,
+    "connectors": [
+      { "id": "ute-009-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-009-b", "type": "CCS", "power": 50, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -114,9 +127,10 @@
     "latitude": -34.9283,
     "longitude": -54.9375,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 50,
+    "connectors": [
+      { "id": "ute-010-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-010-b", "type": "CCS", "power": 50, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -126,9 +140,10 @@
     "latitude": -34.4699,
     "longitude": -57.8434,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-011-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-011-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -138,9 +153,10 @@
     "latitude": -31.3848,
     "longitude": -57.9440,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-012-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-012-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -150,9 +166,10 @@
     "latitude": -32.3214,
     "longitude": -58.0756,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-013-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-013-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -162,9 +179,10 @@
     "latitude": -34.5917,
     "longitude": -56.7139,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 50,
+    "connectors": [
+      { "id": "ute-014-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-014-b", "type": "CCS", "power": 50, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -174,9 +192,10 @@
     "latitude": -34.8353,
     "longitude": -56.0122,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 50,
+    "connectors": [
+      { "id": "ute-015-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-015-b", "type": "CCS", "power": 50, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -186,9 +205,10 @@
     "latitude": -34.7833,
     "longitude": -55.4667,
     "status": "available",
-    "connectorType": "CCS",
-    "connectorCount": 2,
-    "power": 50,
+    "connectors": [
+      { "id": "ute-016-a", "type": "CCS", "power": 50, "status": "available" },
+      { "id": "ute-016-b", "type": "CCS", "power": 50, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -198,9 +218,10 @@
     "latitude": -33.3794,
     "longitude": -56.5222,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-017-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-017-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -210,9 +231,10 @@
     "latitude": -34.4833,
     "longitude": -54.3333,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-018-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-018-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -222,9 +244,10 @@
     "latitude": -33.1283,
     "longitude": -58.2972,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-019-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-019-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   },
   {
@@ -234,9 +257,10 @@
     "latitude": -33.5167,
     "longitude": -56.8833,
     "status": "available",
-    "connectorType": "Type2",
-    "connectorCount": 2,
-    "power": 22,
+    "connectors": [
+      { "id": "ute-020-a", "type": "Type2", "power": 22, "status": "available" },
+      { "id": "ute-020-b", "type": "Type2", "power": 22, "status": "available" }
+    ],
     "operator": "UTE"
   }
 ]

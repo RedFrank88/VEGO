@@ -80,7 +80,12 @@ export const useStationStore = create<StationState>()(
         let filtered = stations;
 
         if (filterStatus) {
-          filtered = filtered.filter((s) => s.status === filterStatus);
+          filtered = filtered.filter((s) => {
+            if (s.connectors && s.connectors.length > 0) {
+              return s.connectors.some((c) => c.status === filterStatus);
+            }
+            return s.status === filterStatus;
+          });
         }
 
         if (searchQuery.trim()) {

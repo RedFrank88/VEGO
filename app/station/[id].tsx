@@ -8,7 +8,7 @@ import { useLocation } from "../../hooks/useLocation";
 import { updateStationStatus } from "../../services/stations";
 import { StatusBadge } from "../../components/Station/StatusBadge";
 import { CheckInModal } from "../../components/Station/CheckInModal";
-import { Station, StationStatus } from "../../types";
+import { Station, StationStatus, Connector } from "../../types";
 import { Colors, Spacing, FontSize, BorderRadius } from "../../constants/theme";
 import uteStations from "../../data/ute-stations.json";
 
@@ -121,9 +121,24 @@ export default function StationDetailScreen() {
         )}
 
         <View style={styles.detailsCard}>
-          <Text style={styles.sectionTitle}>Detalles</Text>
-          <DetailRow icon="flash-outline" label="Potencia" value={`${station.power} kW`} />
-          <DetailRow icon="git-branch-outline" label="Conector" value={`${station.connectorCount}x ${station.connectorType}`} />
+          <Text style={styles.sectionTitle}>Conectores</Text>
+          {station.connectors && station.connectors.length > 0 ? (
+            station.connectors.map((connector: Connector, index: number) => (
+              <View key={connector.id} style={styles.connectorRow}>
+                <View style={styles.connectorInfo}>
+                  <Text style={styles.connectorNumber}>#{index + 1}</Text>
+                  <Text style={styles.connectorType}>{connector.type}</Text>
+                  <Text style={styles.connectorPower}>{connector.power} kW</Text>
+                </View>
+                <StatusBadge status={connector.status} />
+              </View>
+            ))
+          ) : (
+            <>
+              <DetailRow icon="flash-outline" label="Potencia" value={`${station.power ?? "—"} kW`} />
+              <DetailRow icon="git-branch-outline" label="Conector" value={`${station.connectorCount ?? 1}x ${station.connectorType ?? "—"}`} />
+            </>
+          )}
           <DetailRow icon="business-outline" label="Operador" value={station.operator} />
         </View>
 
@@ -270,6 +285,34 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: Colors.text,
     marginBottom: Spacing.sm,
+  },
+  connectorRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: Spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  connectorInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.sm,
+  },
+  connectorNumber: {
+    fontSize: FontSize.sm,
+    fontWeight: "700",
+    color: Colors.textSecondary,
+    width: 24,
+  },
+  connectorType: {
+    fontSize: FontSize.sm,
+    fontWeight: "600",
+    color: Colors.text,
+  },
+  connectorPower: {
+    fontSize: FontSize.sm,
+    color: Colors.textSecondary,
   },
   detailRow: {
     flexDirection: "row",

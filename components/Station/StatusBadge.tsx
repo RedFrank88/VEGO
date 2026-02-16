@@ -13,7 +13,8 @@ interface Props {
 }
 
 export function StatusBadge({ status }: Props) {
-  const { label, color, bg } = config[status];
+  const cfg = config[status] ?? config.available;
+  const { label, color, bg } = cfg;
   return (
     <View style={[styles.badge, { backgroundColor: bg }]}>
       <View style={[styles.dot, { backgroundColor: color }]} />
