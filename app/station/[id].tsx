@@ -1,7 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert, Linking, Platform } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import * as Notifications from "expo-notifications";
 import { useStationStore, haversineDistance } from "../../stores/stationStore";
 import { useAuthStore } from "../../stores/authStore";
 import { useLocation } from "../../hooks/useLocation";
@@ -24,6 +25,7 @@ export default function StationDetailScreen() {
   const { user } = useAuthStore();
   const location = useLocation();
   const [showCheckIn, setShowCheckIn] = useState(false);
+  const notificationIdRef = useRef<string | null>(null);
 
   const station = useMemo(() => {
     const found = stations.find((s) => s.id === id);
@@ -93,6 +95,22 @@ export default function StationDetailScreen() {
         checkIn as any,
         updatedConnectors
       );
+      // Schedule notification when occupying a connector
+      if (status === "occupied" && duration) {
+        const notifId = await Notifications.scheduleNotificationAsync({
+          content: {
+            title: "¿Seguís cargando?",
+            body: `Tu tiempo en ${station.name} terminó. El conector se liberará en 3 minutos.`,
+            sound: true,
+          },
+          trigger: {
+            type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+            seconds: duration * 60,
+          },
+        });
+        notificationIdRef.current = notifId;
+      }
+
       Alert.alert("Check-in exitoso", "Gracias por reportar el estado del cargador");
     } catch (error: any) {
       Alert.alert("Error", error.message || "No se pudo realizar el check-in");
@@ -102,6 +120,12 @@ export default function StationDetailScreen() {
   const handleRelease = async () => {
     if (!station.lastCheckin?.connectorId) return;
     try {
+      // Cancel scheduled notification
+      if (notificationIdRef.current) {
+        await Notifications.cancelScheduledNotificationAsync(notificationIdRef.current);
+        notificationIdRef.current = null;
+      }
+
       await releaseConnector(
         station.id,
         station.lastCheckin.connectorId,

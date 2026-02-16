@@ -1,14 +1,37 @@
 import { useEffect } from "react";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { View, ActivityIndicator, StyleSheet } from "react-native";
+import { View, ActivityIndicator, StyleSheet, Platform } from "react-native";
+import * as Notifications from "expo-notifications";
 import { useAuth } from "../hooks/useAuth";
+import { useCheckInExpiry } from "../hooks/useCheckInExpiry";
 import { Colors } from "../constants/theme";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
+
+async function requestNotificationPermissions() {
+  const { status } = await Notifications.getPermissionsAsync();
+  if (status !== "granted") {
+    await Notifications.requestPermissionsAsync();
+  }
+}
 
 export default function RootLayout() {
   const { user, loading } = useAuth();
   const segments = useSegments();
   const router = useRouter();
+
+  useCheckInExpiry();
+
+  useEffect(() => {
+    requestNotificationPermissions();
+  }, []);
 
   useEffect(() => {
     if (loading) return;

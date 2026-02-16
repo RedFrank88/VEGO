@@ -9,7 +9,7 @@
     "connectors": [
       { "id": "ute-001-a", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-001-b", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-001-c", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-001-c", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-001-d", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
@@ -36,7 +36,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-003-a", "type": "CCS", "power": 30, "status": "available" },
-      { "id": "ute-003-b", "type": "CCS", "power": 30, "status": "occupied" }
+      { "id": "ute-003-b", "type": "CCS", "power": 30, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -62,7 +62,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-005-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-005-b", "type": "Type2", "power": 22, "status": "broken" }
+      { "id": "ute-005-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -77,7 +77,7 @@
       { "id": "ute-006-a", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-006-b", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-006-c", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-006-d", "type": "Type2", "power": 22, "status": "occupied" }
+      { "id": "ute-006-d", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -272,7 +272,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-021-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-021-b", "type": "Type2", "power": 22, "status": "occupied" }
+      { "id": "ute-021-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -325,7 +325,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-025-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-025-b", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-025-b", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-025-c", "type": "CCS", "power": 50, "status": "available" }
     ],
     "operator": "UTE"
@@ -352,7 +352,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-027-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-027-b", "type": "Type2", "power": 22, "status": "broken" }
+      { "id": "ute-027-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -391,7 +391,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-030-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-030-b", "type": "Type2", "power": 22, "status": "occupied" }
+      { "id": "ute-030-b", "type": "Type2", "power": 22, "status": "available" }
     ],
     "operator": "UTE"
   },
@@ -612,7 +612,7 @@
     "status": "available",
     "connectors": [
       { "id": "ute-047-a", "type": "Type2", "power": 22, "status": "available" },
-      { "id": "ute-047-b", "type": "Type2", "power": 22, "status": "occupied" },
+      { "id": "ute-047-b", "type": "Type2", "power": 22, "status": "available" },
       { "id": "ute-047-c", "type": "CCS", "power": 50, "status": "available" }
     ],
     "operator": "UTE"
